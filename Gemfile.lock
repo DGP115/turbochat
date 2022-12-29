@@ -132,6 +132,8 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
+    nokogiri (1.13.10-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -169,6 +171,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.8.0)
     regexp_parser (2.6.1)
     reline (0.3.2)
       io-console (~> 0.5)
@@ -188,6 +191,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.5.4-x64-mingw-ucrt)
     sqlite3 (1.5.4-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
@@ -199,6 +203,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2022.7)
+      tzinfo (>= 1.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -219,6 +225,7 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
@@ -230,6 +237,7 @@ DEPENDENCIES
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.4)
+  redis (~> 4.0)
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
