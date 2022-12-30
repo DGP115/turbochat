@@ -4,6 +4,7 @@
 class RoomsController < ApplicationController
   #  The authenticate_user! method comes from Devise
   before_action :authenticate_user!
+  before_action :set_status
 
   def index
     @room = Room.new
@@ -35,5 +36,9 @@ class RoomsController < ApplicationController
 
   def whitelist_room_params
     params.require(:room).permit(:name)
+  end
+
+  def set_status
+    current_user&.update(status: User.statuses[:online])
   end
 end

@@ -14,6 +14,11 @@ module Turbochat
     # To use mini_magick for image resizing instead of vips, which is teh Rails 7 default
     config.active_storage.variant_processor = :mini_magick
 
+    #  When the Rails server stsarts, set the status of all users to offline
+    config.after_initialize do |_config|
+      User.update_all(status: User.statuses[:offline])
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
