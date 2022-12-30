@@ -40,6 +40,8 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   # config/environments/development.rb, near the other action_mailer config. ~line 40 in an unaltered config file.
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # Added this so that avatar display wouldn't break when switching between rooms
+  config.action_controller.default_url_options = { host: 'localhost', port: 3000 }
 
   config.action_mailer.perform_caching = false
 
