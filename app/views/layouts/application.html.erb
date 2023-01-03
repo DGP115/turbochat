@@ -34,10 +34,18 @@
     <div class="container">
 
       <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          &#9757; <%= notice %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          </button>
+        </div>
       <% end %>
       <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          &#9757; <%= alert %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          </button>
+        </div>
       <% end %>
 
       <%= render 'layouts/navbar' %>

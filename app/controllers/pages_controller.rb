@@ -6,6 +6,8 @@ class PagesController < ApplicationController
 
   def home; end
 
+  def about; end
+
   private
 
   def set_status

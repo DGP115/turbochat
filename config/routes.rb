@@ -3,6 +3,9 @@
 Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'pages#home'
+
+  get 'about', to: 'pages#about'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # To support Devise for User management
   devise_for :users, controllers: {
@@ -14,6 +17,8 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :messages
   end
+
+  get 'roomslist', to: 'rooms#list'
 
   # Custom routes for users
   get 'user/:id', to: 'users#show', as: 'user'

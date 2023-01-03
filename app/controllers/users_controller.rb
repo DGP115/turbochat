@@ -19,7 +19,17 @@ class UsersController < ApplicationController
                     Room.create_private_room([@user, current_user], @directmsg_room_name)
 
     @message = Message.new
-    @messages = @current_room.messages.order(created_at: :asc)
+
+    #  Using Pagy gem for pagination:
+    #   1.  First variable, pagy_messages, comprises all messages in the room in descending order
+    #   2.  When pagy is called, two variables are returned:  @pagy and the messages to display
+    #   Since pagy_messages is in descending order, the second statement below returns the 20 most
+    #   recent messages
+    pagy_messages = @current_room.messages.order(created_at: :desc)
+    @pagy, messages = pagy(pagy_messages, items: 20)
+    #   3  Because we want to lopp through messages as message1, 2, 3, we have to reverse the order
+    #      of "messages", above.  Put that reverse order in our @messages variable
+    @messages = messages.reverse
 
     render 'rooms/index'
   end

@@ -1,0 +1,17 @@
+<!--  Trap for errors (coming from acontroller) that occurred while
+      trying to save a new object
+      Note:   This code would fail on first use unless the object is instantiated first.
+              That happens in the edit action (in controller)-->
+<% if obj.errors.any? %>
+
+  <div class="container">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <%= debugger %>
+      <h6 class="alert-heading">&#9888;The following error(s) occurred while trying to save the <%= obj.class.name.downcase %> as entered:</h6>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <% obj.errors.full_messages.each do |msg| %>
+        <li class="small mb-2"><%= msg %></li>
+      <% end %>
+    </div>
+  </div>
+<% end %>
