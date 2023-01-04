@@ -64,6 +64,32 @@ class RoomsController < ApplicationController
     end
   end
 
+  def admin
+    @public_rooms = Room.public_rooms
+    @private_rooms = Room.private_rooms
+    @participants = Participant.all
+  end
+
+  def destroy
+    set_room
+
+    if @room.destroy
+      #
+      # Generate a confirmation message for the user.
+      flash[:notice] = 'The Room was deleted successfully.'
+
+      redirect_to rooms_admin_path
+
+    else
+
+      # Error trapping
+      # Re-render the "edit" article page.
+      # Because the save returned false, the error trapping on the "edit" page
+      # will display the errors
+      render 'admin', status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_room

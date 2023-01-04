@@ -3,6 +3,10 @@
 # Controller for app-specific, non-Devise user actions
 class UsersController < ApplicationController
   def show
+    # The below ensures that a user that is not logged in can't access user profiles
+    # by entering routes directly in the browser address bar
+    before_action :require_user, only: %i[edit update]
+
     @user = User.find(params[:id])
     @users = User.all_except(current_user)
 

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   get 'roomslist', to: 'rooms#list'
+  get 'rooms_admin', to: 'rooms#admin'
 
   # Custom routes for users
   get 'user/:id', to: 'users#show', as: 'user'
